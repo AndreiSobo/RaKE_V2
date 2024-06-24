@@ -81,4 +81,64 @@ public class RobotTest {
         ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(0.0, 2.0, 0.0));
         assertEquals(expectedPosition, r.getPosition());
     }
+
+    @Test
+    public void robotPicksUpObjectLeft7Forward4FromOrigin() {
+        Robot r = new Robot();
+        r.pickUpObjectLeft7Forward4();
+        ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(0.0, 2.0, 0.0));
+        assertEquals(expectedPosition, r.getPosition());
+    }
+    @Test
+    public void robotMovesObjectFrom5_0_1To3_2_1FromNonOrigin() {
+        Robot r = new Robot(4, 4, 4);
+        r.moveObject5_0_1To3_2_1();
+        ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(3.0, 4.0, 1.0));
+        assertEquals(expectedPosition, r.getPosition());
+    }
+
+    @Test
+    public void robotPicksUpObjectRight2FromNonOrigin() {
+        Robot r = new Robot(1, 2, 1);
+        r.pickUpObjectRight2();
+        ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(0.0, 2.0, 0.0));
+        assertEquals(expectedPosition, r.getPosition());
+    }
+    @Test
+    public void robotPicksUpObjectRight2PlacesAt5_0_5RemainsFromNonOrigin() {
+        Robot r = new Robot(4, 4, 4);
+        r.pickUpObjectRight2Place5_0_5Remain();
+        ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(5.0, 2.0, 5.0));
+        assertEquals(expectedPosition, r.getPosition());
+    }
+
+    @Test
+    public void robotPicksUpObjectLeft4MovesRight5RemainsAtOrigin() {
+        Robot r = new Robot();
+        r.pickUpObjectLeft4MoveRight5Remain();
+        ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(1.0, 2.0, 0.0));
+        assertEquals(expectedPosition, r.getPosition());
+    }
+    @Test
+    public void robotMovesObjectLeft2ToOriginFromNegativeX() {
+        Robot r = new Robot(-4, 2, 2);
+        r.moveObjectLeft2ToOrigin();
+        ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(0.0, 2.0, 0.0));
+        assertEquals(expectedPosition, r.getPosition());
+    }
+    @Test
+    public void robotMovesObject3_0_3Forward2FromOrigin() {
+        Robot r = new Robot();
+        r.moveObject3_0_3Forward2();
+        ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(0.0, 2.0, 0.0));
+        assertEquals(expectedPosition, r.getPosition());
+    }
+    @Test
+    public void robotPicksUpLastObjectMovesLeft2RemainsAtOrigin() {
+        Robot r = new Robot();
+        r.pickUpLastObjectMoveLeft2Remain();
+        ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(1.0, 2.0, 5.0));
+        assertEquals(expectedPosition, r.getPosition());
+    }
+
 }

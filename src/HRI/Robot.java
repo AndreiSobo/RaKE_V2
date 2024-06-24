@@ -41,12 +41,12 @@ public class Robot {
     //    implementing the Y axis
     public void moveY(double distance) {
         this.y += distance;
-        System.out.println("Robot moved on x axis by " + distance + " units. New position: (" + this.x + ", " + this.y + ", " + this.z + ")");
+        System.out.println("Robot moved on y axis by " + distance + " units. New position: (" + this.x + ", " + this.y + ", " + this.z + ")");
     }
     //    implementing the Z axis
     public void moveZ(double distance) {
         this.z += distance;
-        System.out.println("Robot moved on x axis by " + distance + " units. New position: (" + this.x + ", " + this.y + ", " + this.z + ")");
+        System.out.println("Robot moved on z axis by " + distance + " units. New position: (" + this.x + ", " + this.y + ", " + this.z + ")");
     }
     public ArrayList<Double> getPosition() {
         coords.add(getX());
@@ -63,6 +63,7 @@ public class Robot {
         this.x = 0;
         this.y = 2;
         this.z = 0;
+        System.out.println("Returning to origin position. Coordinates are: (" + this.x + ", " + this.y + ", " + this.z + ")");
     }
     // methods for gripper
     public void openGripper() {
@@ -126,6 +127,107 @@ public class Robot {
         this.openGripper(); // Release the object
         this.moveY(2); // Lift the arm back up
         this.returnToOrigin(); // Return to the origin
+    }
+    // "move the object from 5,0,1 to 3,2,1. do not return to origin"
+    public void moveObject5_0_1To3_2_1() {
+        this.returnToOrigin(); // Ensure the robot starts at the origin
+        this.moveX(5); // Move to the object's starting x position
+        this.moveZ(1); // Move to the object's starting z position
+        this.openGripper(); // Open the gripper before lowering
+        this.moveY(-2); // Lower the arm to ground level
+        this.closeGripper(); // Grip the object
+        this.moveY(2); // Lift the object
+        this.moveX(-2); // Move to the target x position
+        this.moveY(2); // Move to the target y position
+        this.moveY(-2); // Lower the arm to ground level
+        this.openGripper(); // Release the object
+        this.moveY(2); // Lift the arm
+        // Do not return to origin
+    }
+
+    // "pickup the object situated 2 cm to the right"
+    public void pickUpObjectRight2() {
+        this.returnToOrigin(); // Ensure the robot starts at the origin
+        this.moveX(2); // Move 2 cm to the right
+        this.openGripper(); // Open the gripper before lowering
+        this.moveY(-2); // Lower the arm 2 cm to reach the object
+        this.closeGripper(); // Grip the object
+        this.moveY(2); // Lift the object 2 cm
+        this.returnToOrigin(); // Return to the origin
+    }
+
+    // "pickup the object situated 2 cm to the right and place it at position 5,0,5. do not return to origin"
+    public void pickUpObjectRight2Place5_0_5Remain() {
+        this.returnToOrigin(); // Ensure the robot starts at the origin
+        this.moveX(2); // Move 2 cm to the right
+        this.openGripper(); // Open the gripper before lowering
+        this.moveY(-2); // Lower the arm 2 cm to reach the object
+        this.closeGripper(); // Grip the object
+        this.moveY(2); // Lift the object 2 cm
+        this.moveX(3); // Move to the target x position (5 - 2 = 3)
+        this.moveZ(5); // Move to the target z position
+        this.moveY(-2); // Lower the arm to ground level
+        this.openGripper(); // Release the object
+        this.moveY(2); // Lift the arm
+        // Do not return to origin
+    }
+    // "take the object situated 4 cm to the left and move it 5 cm to the right. do not return to origin"
+    public void pickUpObjectLeft4MoveRight5Remain() {
+        this.returnToOrigin(); // Ensure the robot starts at the origin
+        this.moveX(-4); // Move 4 cm to the left
+        this.openGripper(); // Open the gripper before lowering
+        this.moveY(-2); // Lower the arm 2 cm to reach the object
+        this.closeGripper(); // Grip the object
+        this.moveY(2); // Lift the object 2 cm
+        this.moveX(5); // Move 5 cm to the right
+        this.moveY(-2); // Lower the arm to ground level
+        this.openGripper(); // Release the object
+        this.moveY(2); // Lift the arm
+        // Do not return to origin
+    }
+    // "move the object situated 2 cm to the left to origin."
+    public void moveObjectLeft2ToOrigin() {
+        this.returnToOrigin(); // Ensure the robot starts at the origin
+        this.moveX(-2); // Move 2 cm to the left
+        this.openGripper(); // Open the gripper before lowering
+        this.moveY(-2); // Lower the arm to ground level
+        this.closeGripper(); // Grip the object
+        this.moveY(2); // Lift the object
+        this.returnToOrigin(); // Move to the origin
+        this.moveY(-2); // Lower the arm to ground level
+        this.openGripper(); // Release the object
+        this.moveY(2); // Lift the arm
+        this.returnToOrigin(); // Return to the origin
+    }
+    // "move the object from 3,0,3 forward 2 cm"
+    public void moveObject3_0_3Forward2() {
+        this.returnToOrigin(); // Ensure the robot starts at the origin
+        this.moveX(3); // Move to the object's x position
+        this.moveZ(3); // Move to the object's z position
+        this.openGripper(); // Open the gripper before lowering
+        this.moveY(-2); // Lower the arm to ground level
+        this.closeGripper(); // Grip the object
+        this.moveY(2); // Lift the object
+        this.moveZ(2); // Move 2 cm forward
+        this.moveY(-2); // Lower the arm to ground level
+        this.openGripper(); // Release the object
+        this.moveY(2); // Lift the arm
+        this.returnToOrigin(); // Return to the origin
+    }
+    // "Pickup last object placed and move it 2 cm to the left. do not return to origin"
+    public void pickUpLastObjectMoveLeft2Remain() {
+        // Assuming the last object was placed at 3, 0, 5 (from previous instruction)
+        this.moveX(3); // Move to the object's x position
+        this.moveZ(5); // Move to the object's z position
+        this.openGripper(); // Open the gripper before lowering
+        this.moveY(-2); // Lower the arm to ground level
+        this.closeGripper(); // Grip the object
+        this.moveY(2); // Lift the object
+        this.moveX(-2); // Move 2 cm to the left
+        this.moveY(-2); // Lower the arm to ground level
+        this.openGripper(); // Release the object
+        this.moveY(2); // Lift the arm
+        // Do not return to origin
     }
 
     // Main method to create a robot instance
