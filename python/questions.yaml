@@ -1,0 +1,3 @@
+questions:
+  - "pick up the object at 4,0,3"
+  - "grab the object at 3,0,9. do not return to origin"
