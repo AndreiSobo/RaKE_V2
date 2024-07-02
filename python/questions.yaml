@@ -1,3 +1,10 @@
-questions:
-  - "pick up the object at 4,0,3"
-  - "grab the object at 3,0,9. do not return to origin"
+  questions:
+  - question: "move left"
+    expected_answer: "COMMAND_MOVE_LEFT"
+  - question: "hello"
+    expected_answer: ""
+  - question: "pick up the coffee thingy"
+    expected_answer: "COMMAND_PICK_UP_CUP"
+  - question: "move to the opposite of right"
+    expected_answer: "COMMAND_MOVE_LEFT"
+
