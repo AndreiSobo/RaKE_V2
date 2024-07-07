@@ -150,18 +150,21 @@ public class Robot {
     }
     // Passed
 
-    // "place the object at 4,0,1 two cm forward on the ground"
-    public void placeObjectAt4_0_1TwoCmForward() {
+    // "place the object situated at 4,0,1 two cm forward on the ground"
+    public void placeObjectForwardOnGround() {
         this.returnToOrigin(); // Ensure the robot starts at the origin
         this.moveX(4); // Move 4 cm to the right
         this.moveZ(1); // Move 1 cm forward
         this.openGripper(); // Open the gripper before lowering
-        this.moveY(-2); // Lower the arm 2 cm to reach the ground
+        this.moveY(-2); // Lower the arm to the ground level
+        this.closeGripper(); // Grip the object
+        this.moveY(2); // Lift the object
+        this.moveZ(2); // Move 2 cm forward
+        this.moveY(-2); // Lower the arm to place the object on the ground
         this.openGripper(); // Release the object
         this.moveY(2); // Raise the arm back to default height
-        this.moveZ(2); // Move 2 cm forward
     }
-    // Failed
+    // Passed
 
     // "move the arm 2 cm to the left from origin. pickup the object situated on the ground 3 cm to the right from  your position and place it at position 5,0,5. do not return to origin"
     public void pickUpAndPlaceObject() {

@@ -141,8 +141,109 @@ public class Robot_Claude3_5Sonnet {
     }
     // Partial. Although the final coordinates are indeed 3,2,1, the order of movements is suboptimal.
 
-    //
+    // "pickup object that is 7 cm to the left and 4 cm forward of origin"
+    public void pickupObjectAt_Neg7_0_4() {
+        this.returnToOrigin(); // Start at the origin
+        this.moveX(-7); // Move 7 cm to the left
+        this.moveZ(4);  // Move 4 cm forward
+        this.openGripper(); // Open the gripper before lowering to the object
+        this.moveY(-2); // Lower arm to ground level
+        this.closeGripper(); // Grasp the object
+        this.moveY(2); // Lift the object back to the default height
+    }
+    // Passed
 
+    // "pickup the object situated 2 cm to the right from origin"
+    public void pickupObjectAt2_0_0() {
+        this.returnToOrigin(); // Start at the origin
+        this.moveX(2); // Move 2 cm to the right
+        this.openGripper(); // Open the gripper before lowering to the object
+        this.moveY(-2); // Lower arm to ground level
+        this.closeGripper(); // Grasp the object
+        this.moveY(2); // Lift the object back to the default height
+    }
+    // Passed
+
+    // "place the object situated at 4,0,1 two cm forward on the ground"
+    public void placeObjectFrom4_0_1TwoForward() {
+        this.returnToOrigin(); // Start at the origin
+        this.moveX(4); // Move 4 cm to the right
+        this.moveZ(1); // Move 1 cm forward
+        this.openGripper(); // Open the gripper before lowering to the object
+        this.moveY(-2); // Lower arm to ground level
+        this.closeGripper(); // Grasp the object
+        this.moveY(2); // Lift the object back to the default height
+        this.moveZ(2); // Move 2 cm forward
+        this.moveY(-2); // Lower the object to the ground
+        this.openGripper(); // Release the object
+        this.moveY(2); // Raise the arm back to the default height
+    }
+    // Passed
+
+    // "move the arm 2 cm to the left from origin. pickup the object situated on the ground 3 cm to the right from  your position and place it at position 5,0,5. do not return to origin"
+    public void moveArmLeftPickupRightAndPlaceAt5_0_5() {
+        this.returnToOrigin(); // Start at the origin
+        this.moveX(-2); // Move 2 cm to the left from origin
+        this.moveX(3); // Move 3 cm to the right from current position
+        this.openGripper(); // Open the gripper before lowering to the object
+        this.moveY(-2); // Lower arm to ground level
+        this.closeGripper(); // Grasp the object
+        this.moveY(2); // Lift the object back to the default height
+        this.moveX(4); // Move to x=5 (current x is 1, so move 4 more)
+        this.moveZ(5); // Move to z=5
+        this.moveY(-2); // Lower the object to the ground
+        this.openGripper(); // Release the object
+        this.moveY(2); // Raise the arm back to the default height
+    }
+    // Passed
+
+    // "take the object situated 4 cm to the left and move it 5 cm to the right. Do not return to origin"
+    public void moveObjectLeftToRight() {
+        this.returnToOrigin(); // Start at the origin
+        this.moveX(-4); // Move 4 cm to the left
+        this.openGripper(); // Open the gripper before lowering to the object
+        this.moveY(-2); // Lower arm to ground level
+        this.closeGripper(); // Grasp the object
+        this.moveY(2); // Lift the object back to the default height
+        this.moveX(5); // Move 5 cm to the right
+        this.moveY(-2); // Lower the object to the ground
+        this.openGripper(); // Release the object
+        this.moveY(2); // Raise the arm back to the default height
+    }
+    // Passed
+
+    // "move the object situated 2 cm to the left from origin to origin"
+    public void moveObjectFromLeft2ToOrigin() {
+        this.returnToOrigin(); // Start at the origin
+        this.moveX(-2); // Move 2 cm to the left
+        this.openGripper(); // Open the gripper before lowering to the object
+        this.moveY(-2); // Lower arm to ground level
+        this.closeGripper(); // Grasp the object
+        this.moveY(2); // Lift the object back to the default height
+        this.moveX(2); // Move 2 cm to the right (back to origin)
+        this.moveY(-2); // Lower the object to the ground
+        this.openGripper(); // Release the object
+        this.moveY(2); // Raise the arm back to the default height
+    }
+    // Passed
+
+    // "place the object from -3,0,3 forward 2 cm on the ground then return to origin"
+    public void moveObjectForwardAndReturnToOrigin() {
+        this.returnToOrigin(); // Start at the origin
+        this.moveX(-3); // Move 3 cm to the left
+        this.moveZ(3); // Move 3 cm forward
+        this.openGripper(); // Open the gripper before lowering to the object
+        this.moveY(-2); // Lower arm to ground level
+        this.closeGripper(); // Grasp the object
+        this.moveY(2); // Lift the object back to the default height
+        this.moveZ(2); // Move forward 2 cm
+        this.moveY(-2); // Lower the object to the ground
+        this.openGripper(); // Release the object
+        this.moveY(2); // Raise the arm back to the default height
+        this.returnToOrigin(); // Return to the origin
+    }
+
+    // Passed
 
     public static void main(String[] args) {
         Robot_Claude3_5Sonnet r = new Robot_Claude3_5Sonnet();
