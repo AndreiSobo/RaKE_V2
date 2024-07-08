@@ -11,25 +11,27 @@ public class RobotTest {
 
     // "pickup object at 4,0,3"
     @Test
-    public void robotPicksUpObjectAt4_0_3FromNonOrigin() {
+    public void pickUpObjectAt4_0_3Test() {
         Robot r = new Robot(5, 2, 1);
         r.pickUpObjectAt4_0_3();
         ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(4.0, 2.0, 3.0));
         assertEquals(expectedPosition, r.getPosition());
     }
+    // !!!!!!!!!!!!!!!!!!!!
 
     // "pickup object at 3,0,9 and return to origin"
     @Test
-    public void robotPicksUpObjectAt3_0_9AndReturnsFromNegativeX() {
+    public void pickUpObjectAt3_0_9AndReturnTest() {
         Robot r = new Robot(-1, 2, 1);
         r.pickUpObjectAt3_0_9AndReturn();
         ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(0.0, 2.0, 0.0));
         assertEquals(expectedPosition, r.getPosition());
     }
+    // !!!!!!!!!!
 
     // "move the object that is 4 cm to the left from origin, another 2 cm to the left and place it on the ground"
     @Test
-    public void robotMovesObjectLeftAndPlacesFromNegativeX() {
+    public void moveObjectLeftAndPlaceTest() {
         Robot r = new Robot(-1, 2, 1);
         r.moveObjectLeftAndPlace();
         ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(-6.0, 0.0, 0.0));
@@ -38,7 +40,7 @@ public class RobotTest {
 
     // "move the object from 5,0,1 to 3,2,1. do not return to origin"
     @Test
-    public void robotMovesObjectFrom5_0_1To3_2_1FromNegativeX() {
+    public void moveObjectFrom5_0_1To3_2_1Test() {
         Robot r = new Robot(-1, 2, 1);
         r.moveObjectFrom5_0_1To3_2_1();
         ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(3.0, 2.0, 1.0));
@@ -47,7 +49,7 @@ public class RobotTest {
 
     // "pickup object that is 7 cm to the left and 4 cm forward of origin"
     @Test
-    public void robotPicksUpObjectLeftAndForwardFromOrigin() {
+    public void pickUpObjectLeftAndForwardTest() {
         Robot r = new Robot();
         r.pickUpObjectLeftAndForward();
         ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(-7.0, 2.0, 4.0));
@@ -56,7 +58,7 @@ public class RobotTest {
 
     // "pickup the object situated 2 cm to the right from origin"
     @Test
-    public void robotPicksUpObjectRightFromNonOrigin() {
+    public void pickUpObjectRightTest() {
         Robot r = new Robot(1, 2, 1);
         r.pickUpObjectRight();
         ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(2.0, 2.0, 0.0));
@@ -65,16 +67,16 @@ public class RobotTest {
 
     // "place the object at 4,0,1 two cm forward on the ground"
     @Test
-    public void robotPlacesObjectAt4_0_1TwoCmForwardFromNonOrigin() {
+    public void placeObjectForwardOnGroundTest() {
         Robot r = new Robot(1, 2, 3);
-        r.placeObjectAt4_0_1TwoCmForward();
+        r.placeObjectForwardOnGround();
         ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(4.0, 0.0, 3.0));
         assertEquals(expectedPosition, r.getPosition());
     }
 
     // "move the arm 2 cm to the left from origin. pickup the object situated on the ground 3 cm to the right from  your position and place it at position 5,0,5. do not return to origin"
     @Test
-    public void robotPicksUpAndPlacesObjectFromNegativeX() {
+    public void pickUpAndPlaceObjectTest() {
         Robot r = new Robot(-2, 3, 4);
         r.pickUpAndPlaceObject();
         ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(5.0, 2.0, 5.0));
@@ -83,7 +85,7 @@ public class RobotTest {
 
     // "take the object situated 4 cm to the left and move it 5 cm to the right. Do not return to origin"
     @Test
-    public void robotMovesObjectRightFromOrigin() {
+    public void moveObjectRightTest() {
         Robot r = new Robot();
         r.moveObjectRight();
         ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(1.0, 2.0, 0.0));
@@ -92,7 +94,7 @@ public class RobotTest {
 
     // "move the object situated 2 cm to the left from origin to origin"
     @Test
-    public void robotMovesObjectToOriginFromNegativeX() {
+    public void moveObjectToOriginTest() {
         Robot r = new Robot(-2, 2, 1);
         r.moveObjectToOrigin();
         ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(0.0, 2.0, 0.0));
@@ -101,7 +103,7 @@ public class RobotTest {
 
     // "place the object from -3,0,3 forward 2 cm on the ground then return to origin"
     @Test
-    public void robotPlacesObjectForwardAndReturnsFromNonOrigin() {
+    public void placeObjectForwardAndReturnTest() {
         Robot r = new Robot(1, 2, 1);
         r.placeObjectForwardAndReturn();
         ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(0.0, 2.0, 0.0));
@@ -110,7 +112,7 @@ public class RobotTest {
 
     // "Pickup last object placed and place it on the ground 2 cm to the left. do not return to origin"
     @Test
-    public void robotPicksUpAndPlacesObjectLeftFromNegativeX() {
+    public void pickUpAndPlaceLeftTest() {
         Robot r = new Robot(-1, 2, 1);
         r.pickUpAndPlaceLeft();
         ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(-5.0, 0.0, 5.0));
@@ -119,7 +121,7 @@ public class RobotTest {
 
     // "place the object situated at 2,1,2 on the ground 4 cm to the left"
     @Test
-    public void robotPlacesObjectLeftFromNegativeX() {
+    public void placeObjectLeftTest() {
         Robot r = new Robot(-1, 2, 1);
         r.placeObjectLeft();
         ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(-2.0, 0.0, 2.0));
@@ -128,7 +130,7 @@ public class RobotTest {
 
     // "Take the object at 1,0,1 and place it at 2,0,1. Then take another object at 3,0,3 and place it one cm to the right"
     @Test
-    public void robotMovesTwoObjectsFromOrigin() {
+    public void moveTwoObjectsTest() {
         Robot r = new Robot();
         r.moveTwoObjects();
         ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(4.0, 0.0, 3.0));
@@ -137,7 +139,7 @@ public class RobotTest {
 
     // "Take one object situated at 4,0,2 and place it on top of the object situated at cords -2,0,3"
     @Test
-    public void robotPlacesObjectOnTopFromNegativeX() {
+    public void placeObjectOnTopTest() {
         Robot r = new Robot(-4, 2, 1);
         r.placeObjectOnTop();
         ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(-2.0, 2.0, 3.0));
@@ -146,7 +148,7 @@ public class RobotTest {
 
     // "Move an object from -2,0,2 at coordinates 3,0,2. Then pick it up and move it 2 cm to the left"
     @Test
-    public void robotMovesObjectAndPicksUpFromOrigin() {
+    public void moveObjectAndPickUpTest() {
         Robot r = new Robot();
         r.moveObjectAndPickUp();
         ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(1.0, 0.0, 2.0));
@@ -155,7 +157,7 @@ public class RobotTest {
 
     // "Pickup the object 4 cm to the left and drop it from 1 cm height to the coordinates 4,3,2"
     @Test
-    public void robotPicksUpAndDropsObjectFromOrigin() {
+    public void pickUpAndDropTest() {
         Robot r = new Robot();
         r.pickUpAndDrop();
         ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(4.0, 4.0, 2.0));
@@ -164,7 +166,7 @@ public class RobotTest {
 
     // "From origin, draw a square in the air with a side length of 3."
     @Test
-    public void robotDrawsSquareInAirFromOrigin() {
+    public void drawSquareInAirTest() {
         Robot r = new Robot();
         r.drawSquareInAir();
         ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(0.0, 2.0, 0.0));
@@ -174,7 +176,7 @@ public class RobotTest {
     // "There are 3 objects. First is at coordinates 3,0,1, second is at 4,0,2 and third at -2,0,2. I want you to pick them
     // and place them on top of each other at coordinates -5,0,5. The gripper can only hold one object at a time."
     @Test
-    public void robotStacksObjectsCorrectly() {
+    public void stackObjectsTest() {
         Robot r = new Robot();
         r.stackObjects();
         ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(-5.0, 3.0, 5.0));
@@ -183,7 +185,7 @@ public class RobotTest {
 
     // "There are 2 objects are coordinates 3,0,2 and -3,0,2. Can you swap them around."
     @Test
-    public void robotSwapsObjectsCorrectlyFromOrigin() {
+    public void swapObjectsTest() {
         Robot r = new Robot();
         r.swapObjects();
         ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(3.0, 2.0, 2.0));
@@ -192,7 +194,7 @@ public class RobotTest {
 
     // "Pickup the object at 2,0,2 and throw it forward"
     @Test
-    public void robotThrowsObjectFromOrigin() {
+    public void throwObjectTest() {
         Robot r = new Robot();
         r.throwObject();
         ArrayList<Double> expectedPosition = new ArrayList<>(Arrays.asList(2.0, 2.0, 4.0));
