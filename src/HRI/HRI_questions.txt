@@ -1,23 +1,17 @@
 Prompts
-1.	pickup object at 4,0,3
-2.	pickup object at 3,0,9 and return to origin
-3.	move the object that is 4 cm to the left from origin, another 2 cm to the left and place it on the ground
-4.	move the object from 5,0,1 to 3,2,1. do not return to origin
-5.	pickup object that is 7 cm to the left and 4 cm forward of origin
-6.	pickup the object situated 2 cm to the right from origin
-7.	place the object at 4,0,1 two cm forward on the ground
-8.	move the arm 2 cm to the left from origin. pickup the object situated on the ground 3 cm to the right from  your position and place it at position 5,0,5. do not return to origin
-9.	take the object situated 4 cm to the left and move it 5 cm to the right. Do not return to origin
-10.	move the object situated 2 cm to the left from origin to origin
-11.	place the object from -3,0,3 forward 2 cm on the ground then return to origin
-12.	Pickup last object placed and place it on the ground 2 cm to the left. do not return to origin
-13.	place the object situated at 2,1,2 on the ground 4 cm to the left
-14.	Take the object at 1,0,1 and place it at 2,0,1. Then take another object at 3,0,3 and place it one cm to the right.
-15.	Take one object situated at 4,0,2 and place it on top of the object situated at cords -2,0,3
-16.	Move an object from -2,0,2 at coordinates 3,0,2. Then pick it up and move it 2 cm to the left
-17.	Pickup the object 4 cm to the left and drop it from 1 cm height to the coordinates 4,3,2
-18.	From origin, draw a square in the air with a side length of 3.
-19.	There are 3 objects. First is  at coordinates 3,0,1, second is at 4,0,2 and third at -2,0,2. I want you to pick them and place them on top of each other at coordinates -5,0,5. The gripper can only hold one object at a time.
-20.	There are 2 objects are coordinates 3,0,2 and -3,0,2. Can you swap them around.
-21.	Pickup the object at 2,0,2 and throw it forward
-22.	Pickup the last two objects moved and place them next to each other at coords -5,0,7
+1.	pickup object at 3,0,9 and return to origin
+2.	pickup object that is 7 cm to the left and 4 cm forward of origin
+3.	pickup the object situated 2 cm to the right from origin and move it at coordinates (-2,0,2)
+4.	place the object at 4,0,1 two cm forward on the ground
+5.	move the arm 2 cm to the left from origin. pickup the object situated on the ground 3 cm to the right from  your position and place it at position 5,0,5. do not return to origin
+6.	move the object situated 2 cm to the left from origin to origin
+7.	Pickup last object placed and place it on the ground 2 cm to the left. do not return to origin
+8.	place the object situated at 2,1,2 on the ground 4 cm to the left
+9.	Take the object at 1,0,1 and place it at 2,0,1. Then take another object at 3,0,3 and place it one cm to the right.
+10. Take one object situated at 4,0,2 and place it on top of the object situated at cords -2,0,3
+11. Move an object from -2,0,2 at coordinates 3,0,2. Then pick it up and move it 2 cm to the left
+12. Pickup the object 4 cm to the left and drop it from 1 cm height to the coordinates 4,3,2
+13.	From origin, draw a square in the air with a side length of 3.
+14. There are 3 objects. First is  at coordinates 3,0,1, second is at 4,0,2 and third at -2,0,2. I want you to pick them and place them on top of each other at coordinates -5,0,5. The gripper can only hold one object at a time.
+15. There are 2 objects are coordinates 3,0,2 and -3,0,2. Can you swap them around
+16. Pickup the last two objects moved and place them next to each other at coords -5,0,7
