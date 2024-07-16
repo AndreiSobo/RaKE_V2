@@ -15,3 +15,7 @@ Prompts
 14. There are 3 objects. First is  at coordinates 3,0,1, second is at 4,0,2 and third at -2,0,2. I want you to pick them and place them on top of each other at coordinates -5,0,5. The gripper can only hold one object at a time.
 15. There are 2 objects are coordinates 3,0,2 and -3,0,2. Can you swap them around
 16. Pickup the last two objects moved and place them next to each other at coords -5,0,7
+17. Move the objects are coordinates (1,0,1) and (-2,0,1) to a new position where they will be placed at (5,0,5) and (6,0,5)
+18. pickup the object at (1,0,1) and move it to a new Z position at (1,0,5)
+19. pick up the object at coordinates (0,0,0) and move it to a new X position of 4 cm.
+20. pick up the object at coordinates (3,0,1) and move it to a new Y position to coordinates (-2,1,-2)

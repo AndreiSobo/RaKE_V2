@@ -845,8 +845,207 @@ public class Robot {
     }
     // Failed. Incorrect placement of objects.
 
+    // "Move the objects are coordinates (1,0,1) and (-2,0,1) to a new position where they will be placed at (5,0,5) and (6,0,5)"
+    public void moveTwoObjectsToNewPosition() {
+        this.returnToOrigin(); // Ensure the robot starts at the origin
 
+        // Define the objects at the coordinates where they are located
+        ObjectHRI object1 = new ObjectHRI(1, 0, 1); // First object at (1, 0, 1)
+        ObjectHRI object2 = new ObjectHRI(-2, 0, -1); // Second object at (-2, 0, -1)
 
+        // Define the target positions for the two objects
+        int targetX1 = 5;
+        int targetZ1 = 5;
+        int targetX2 = 6;
+        int targetZ2 = 5;
+
+        // Move to the position of the first object
+        this.moveX(1); // Move 1 cm to the right
+        this.moveZ(1); // Move 1 cm forward
+
+        // Pick up the first object
+        this.openGripper(); // Open gripper before lowering
+        this.moveY(-2); // Lower to ground level
+        this.closeGripper(); // Grip the object
+        this.moveY(2); // Lift the object
+
+        // Update the first object's coordinates
+        object1.setX(this.getX());
+        object1.setY(this.getY());
+        object1.setZ(this.getZ());
+
+        // Move to the new position for the first object
+        this.moveX(targetX1 - this.getX()); // Move to x = 5
+        this.moveZ(targetZ1 - this.getZ()); // Move to z = 5
+
+        // Place the first object
+        this.moveY(-2); // Lower to ground level
+        this.openGripper(); // Release the object
+        this.moveY(2); // Raise the arm
+
+        // Update the first object’s coordinates
+        object1.setX(this.getX());
+        object1.setY(this.getY());
+        object1.setZ(this.getZ());
+
+        // Move to the position of the second object
+        this.moveX(-7); // Move 7 cm to the left (from 1 to -2)
+        this.moveZ(-2); // Move 2 cm backward (from 1 to -1)
+
+        // Pick up the second object
+        this.openGripper(); // Open gripper before lowering
+        this.moveY(-2); // Lower to ground level
+        this.closeGripper(); // Grip the object
+        this.moveY(2); // Lift the object
+
+        // Update the second object's coordinates
+        object2.setX(this.getX());
+        object2.setY(this.getY());
+        object2.setZ(this.getZ());
+
+        // Move to the new position for the second object
+        this.moveX(targetX2 - this.getX()); // Move to x = 6
+        this.moveZ(targetZ2 - this.getZ()); // Move to z = 5
+
+        // Place the second object
+        this.moveY(-2); // Lower to ground level
+        this.openGripper(); // Release the object
+        this.moveY(2); // Raise the arm
+
+        // Update the second object’s coordinates
+        object2.setX(this.getX());
+        object2.setY(this.getY());
+        object2.setZ(this.getZ());
+
+        System.out.println("First object moved to (" + object1.getX() + ", " + object1.getY() + ", " + object1.getZ() + ")");
+        System.out.println("Second object moved to (" + object2.getX() + ", " + object2.getY() + ", " + object2.getZ() + ")");
+        System.out.println("Robot returned to origin. Position: (" + this.getX() + ", " + this.getY() + ", " + this.getZ() + ")");
+    }
+    // Failed
+
+    // "pickup the object at (1,0,1) and move it to a new Z position at (1,0,5)"
+    public void pickUpObjectAndMoveToNewZPosition() {
+        // Ensure the robot starts at the origin
+        this.returnToOrigin();
+
+        // Define the object at the coordinates where it is located
+        ObjectHRI object = new ObjectHRI(1, 0, 1);
+
+        // Move to the position of the object
+        this.moveX(1);  // Move to X position 1
+        this.moveZ(1);  // Move to Z position 1
+
+        // Pick up the object
+        this.openGripper();
+        this.moveY(-2); // Move the arm down to pick up the object
+        this.closeGripper(); // Close the gripper to grab the object
+        this.moveY(2);  // Move the arm back to the original height
+
+        // Update the object's coordinates
+        object.setX(this.getX());
+        object.setY(this.getY());
+        object.setZ(this.getZ());
+
+        // Move the object to the new Z position (1, 0, 5)
+        this.moveZ(4);  // Move the Z position from 1 to 5 (increase Z by 4 units)
+        object.setZ(this.getZ());  // Update the object's Z position
+
+        // Place the object at the new Z position
+        this.moveY(-2);  // Lower the arm to place the object
+        this.openGripper();  // Open the gripper to release the object
+        this.moveY(2);   // Move the arm back to the original height
+
+        // Print status messages
+        System.out.println("Object moved to new Z position (1, 0, 5).");
+        System.out.println("Final object position: (" + object.getX() + ", " + object.getY() + ", " + object.getZ() + ")");
+        System.out.println("Robot returned to origin. Position: (" + this.getX() + ", " + this.getY() + ", " + this.getZ() + ")");
+    }
+    // Passed
+
+    // "pick up the object at coordinates (0,0,0) and move it to a new X position of 4 cm."
+    public void pickUpObjectAndMoveToNewXPosition() {
+        // Ensure the robot starts at the origin
+        this.returnToOrigin();
+
+        // Define the object at the coordinates where it is located
+        ObjectHRI object = new ObjectHRI(0, 0, 0);
+
+        // Move to the position of the object
+        this.moveX(0);  // Move to X position 0 (already at origin)
+        this.moveZ(0);  // Move to Z position 0 (already at origin)
+
+        // Pick up the object
+        this.openGripper();
+        this.moveY(-2); // Move the arm down to pick up the object
+        this.closeGripper(); // Close the gripper to grab the object
+        this.moveY(2);  // Move the arm back to the original height
+
+        // Update the object's coordinates
+        object.setX(this.getX());
+        object.setY(this.getY());
+        object.setZ(this.getZ());
+
+        // Move the object to the new X position (4 cm)
+        this.moveX(4);  // Move the X position from 0 to 4 (increase X by 4 units)
+        object.setX(this.getX());  // Update the object's X position
+
+        // Place the object at the new X position
+        this.moveY(-2);  // Lower the arm to place the object
+        this.openGripper();  // Open the gripper to release the object
+        this.moveY(2);   // Move the arm back to the original height
+
+        // Print status messages
+        System.out.println("Object moved to new X position (4, 0, 0).");
+        System.out.println("Final object position: (" + object.getX() + ", " + object.getY() + ", " + object.getZ() + ")");
+        System.out.println("Robot returned to origin. Position: (" + this.getX() + ", " + this.getY() + ", " + this.getZ() + ")");
+    }
+    // Passed
+
+    // "pick up the object at coordinates (3,0,1) and move it to a new Y position to coordinates (-2,1,-2)"
+    public void pickUpObjectAt3_0_1AndMoveToNewPosition() {
+        // Ensure the robot starts at the origin
+        this.returnToOrigin();
+
+        // Define the object at the coordinates where it is located
+        ObjectHRI object = new ObjectHRI(3, 0, 1);
+
+        // Move to the position of the object
+        this.moveX(3);  // Move to X position 3
+        this.moveZ(1);  // Move to Z position 1
+
+        // Pick up the object
+        this.openGripper();
+        this.moveY(-2); // Move the arm down to pick up the object
+        this.closeGripper(); // Close the gripper to grab the object
+        this.moveY(2);  // Move the arm back to the original height
+
+        // Update the object's coordinates
+        object.setX(this.getX());
+        object.setY(this.getY());
+        object.setZ(this.getZ());
+
+        // Move the object to the new X, Y, Z position (-2, 1, -2)
+        this.moveX(-5); // Move from X=3 to X=-2 (3 to -2 is -5 units)
+        this.moveY(-1); // Move from Y=2 to Y=1 (2 to 1 is -1 unit)
+        this.moveZ(-3); // Move from Z=1 to Z=-2 (1 to -2 is -3 units)
+        object.setX(this.getX()); // Update the object's X position
+        object.setY(this.getY()); // Update the object's Y position
+        object.setZ(this.getZ()); // Update the object's Z position
+
+        // Place the object at the new position
+        this.moveY(-2);  // Lower the arm to place the object
+        this.openGripper();  // Open the gripper to release the object
+        this.moveY(2);   // Move the arm back to the original height
+
+        // Print status messages
+        System.out.println("Object moved to new position (-2, 1, -2).");
+        System.out.println("Final object position: (" + object.getX() + ", " + object.getY() + ", " + object.getZ() + ")");
+        System.out.println("Robot returned to origin. Position: (" + this.getX() + ", " + this.getY() + ", " + this.getZ() + ")");
+    }
+    // Failed
+
+    // Tests passed: 9
+    // Tests failed: 11
 
 
     // Main method to create a robot instance
