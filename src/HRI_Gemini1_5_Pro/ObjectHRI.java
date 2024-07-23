@@ -1,47 +1,53 @@
-package HRI;
+package HRI_Gemini1_5_Pro;
 
 import java.util.ArrayList;
 
 public class ObjectHRI {
-    private double x;
-    private double y;
-    private double z;
-    public ArrayList<Double> objCoords = new ArrayList<>();
+    public int x;
+    public int y;
+    public int z;
+    public ArrayList<Integer> objCoords = new ArrayList<>();
 
-    public ObjectHRI(double x, double y, double z) {
+    public ObjectHRI(int x, int y, int z) {
         this.x = x;
         this.y = y;
         this.z = z;
     }
 
-    public double getX() {
+    public ObjectHRI() {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
+    public int getX() {
         return x;
     }
 
-    public double getY() {
+    public int getY() {
         return y;
     }
 
-    public double getZ() {
+    public int getZ() {
         return z;
     }
     // Implementing Getters
-    public void setX(double x) {
+    public void setX(int x) {
         this.x = x;
     }
-    public void setY(double y) {
+    public void setY(int y) {
         this.y = y;
     }
-    public void setZ(double z) {
+    public void setZ(int z) {
         this.z = z;
     }
 
-    public void setPosition(double x, double y, double z) {
+    public void setPosition(int x, int y, int z) {
         this.x = x;
         this.y = y;
         this.z = z;
     }
-    public ArrayList<Double> getPosition () {
+    public ArrayList<Integer> getPosition () {
         objCoords.add(getX());
         objCoords.add(getY());
         objCoords.add(getZ());
